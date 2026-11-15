@@ -1,8 +1,7 @@
 /* Halil Emre Işık · personal site
    A ring-binder manual: every chapter is a full-colour board, the content
    sits on a cream leaf laid over it, and a tab rail on the edge jumps
-   between chapters. Motion is stepped (two frames), like a hinged page.
-   Design language after haktansaglam.com, used with a nod to Haktan. */
+   between chapters. Motion is stepped (two frames), like a hinged page. */
 
 :root {
   --yellow: #f4c20d;
@@ -417,64 +416,138 @@ html[data-lang="de"] .leaf::after { content: attr(data-spine-de); }
   .prints { padding-bottom: calc(var(--cell) * 4); }
 }
 @media (max-width: 760px) {
+  /* phones: same binder, tighter. Secondary panels are dropped and the
+     card backs open in place instead of flipping, to keep the scroll short. */
   :root { --rail: 0px; }
-  body { font-size: 17px; padding-bottom: 60px; }
-  .chapter { padding: 10px; }
-  .leaf { padding: 28px 18px 32px 40px; border-radius: 10px; }
-  .holes::before, .holes::after { left: 12px; width: 14px; height: 14px; }
+  body { font-size: 16px; line-height: 1.45; padding-bottom: 56px; }
+  .chapter { padding: 8px; }
+  .leaf { padding: 20px 14px 22px 32px; border-radius: 10px; }
+  .holes::before, .holes::after { left: 10px; width: 12px; height: 12px; }
+  .holes::before { top: 64px; }
+  .holes::after { bottom: 64px; }
   .leaf::after { display: none; }
   .rail {
-    top: auto; left: 0; height: 58px; width: auto; flex-direction: row; align-items: flex-end; justify-content: flex-start;
+    top: auto; left: 0; height: 54px; width: auto; flex-direction: row; align-items: flex-end; justify-content: flex-start;
     padding: 0 8px; gap: 3px; background: transparent;
     overflow-x: auto; scrollbar-width: none; pointer-events: auto;
   }
   .rail::-webkit-scrollbar { display: none; }
   .rail a {
-    writing-mode: horizontal-tb; flex: 0 0 auto; min-height: 0; max-height: none; height: 44px; margin-left: 0;
-    padding: 0 14px; border-radius: 9px 9px 0 0; font-size: 18px; box-shadow: 0 -2px 6px rgba(0,0,0,.18);
+    writing-mode: horizontal-tb; flex: 0 0 auto; min-height: 0; max-height: none; height: 40px; margin-left: 0;
+    padding: 0 12px; border-radius: 9px 9px 0 0; font-size: 18px; box-shadow: 0 -2px 6px rgba(0,0,0,.18);
     transition: height var(--hinge) steps(2, end);
   }
   .rail a:hover { margin-left: 0; }
-  .rail a.is-current { height: 54px; }
-  .masthead { grid-template-columns: 1fr; gap: 16px; }
-  .wordmark { font-size: 21px; }
-  .mast-actions { justify-content: space-between; }
-  .status { grid-row: auto; flex-direction: column; row-gap: 0; }
-  .status li { flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; border-left: 0; padding: 7px 0; border-top: 1px solid var(--rule); }
-  .status li > span { font-size: 14px; white-space: normal; text-align: right; }
-  .cover-main { padding-top: calc(var(--cell) * 4); }
-  .cover-side { grid-template-columns: 1fr; }
-  .contents-row { grid-template-columns: 1fr; }
-  .lead { font-size: 20px; }
-  .role { font-size: 20px; }
-  .chapter-sub { font-size: 18px; }
-  /* phones: no flip; the back face sits open under the card */
-  .plates { grid-template-columns: 1fr; }
-  .flip-inner { display: block; height: auto; transition: none; }
-  .front { height: auto; }
-  .flip.is-flipped .flip-inner { transform: none; }
-  .face { backface-visibility: visible; -webkit-backface-visibility: visible; }
-  .back { transform: none; margin-top: 10px; padding-top: calc(var(--cell) * 3); }
-  .back .h4, .flip-btn { display: none; }
-  .back-text { margin-top: 0; }
-  .back-text p { font-size: 17px; }
-  .feat, .feat-compact { grid-template-columns: 1fr; }
-  .feat-compact { margin-top: 0; }
-  .feat dt { padding-bottom: 0; }
-  .feat dd { border-top: 0; padding-top: 4px; }
-  .print { width: 86%; }
-  .print:nth-child(n+2) { margin-top: -18px; }
+  .rail a.is-current { height: 50px; }
+
+  .display { font-size: 40px; }
+  .h2 { font-size: 32px; }
+  .h4 { font-size: 18px; }
+  .lead { font-size: 17px; line-height: 1.4; margin-top: 12px; }
+  .body { font-size: 16px; line-height: 1.45; }
+  .role { font-size: 17px; margin-top: 8px; }
+  .cta { margin-top: 16px; gap: 8px; }
+  .btn { padding: 11px 13px; font-size: 12px; }
+  .panel { padding: 12px 14px; }
+  .rows li { padding: 6px 0; font-size: 15px; }
+  .rows .more { font-size: 14px; }
+  .stack { font-size: 11.5px; margin-top: 8px; }
+
+  /* cover */
+  .masthead { grid-template-columns: 1fr auto; gap: 10px; padding-bottom: 12px; }
+  .wordmark { font-size: 17px; letter-spacing: .1em; }
+  .status, .mast-actions .btn { display: none; }
+  .lang-toggle button { padding: 9px 9px; font-size: 12px; }
+  .cover-main { padding-top: 18px; padding-bottom: 14px; }
+  .cover-main .lead + .lead { display: none; }
+  .links { padding-top: 16px; gap: 6px 16px; font-size: 12px; }
+  .cover-side { grid-template-columns: 1fr; gap: 10px; padding-bottom: 16px; }
+  .cover-side .panel:last-child { display: none; }
+  .id-panel { grid-template-columns: 56px 1fr; gap: 12px; }
+  .id-panel img { width: 56px; height: 56px; }
+  .id-name { font-size: 16px; }
+  .id-meta { font-size: 14px; margin-top: 3px; }
+  .contents { padding-top: 10px; }
+  .contents-title { margin-bottom: 8px; }
+  .contents-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .entry { grid-template-columns: 36px 1fr; gap: 10px; padding: 8px; align-items: center; }
+  .entry-img { width: 36px; height: 36px; padding: 3px; grid-row: auto; }
+  .entry-img.tile-img svg { width: 22px; height: 22px; }
+  .entry-txt { padding: 0; }
+  .entry-txt b { font-size: 15px; }
+  .entry-txt > span, .entry .badge { display: none; }
+
+  /* chapter heads */
+  .chapter-head { gap: 10px; padding-bottom: 14px; margin-bottom: 14px; }
+  .chapter-sub { font-size: 16px; line-height: 1.4; }
+  .sub-head { margin: 20px 0 10px; padding-top: 10px; }
+  .sub-head span:last-child { display: none; }
+
+  /* photography */
+  .zr { gap: 0; }
+  .prints { display: none; }
+  .feat { grid-template-columns: 84px 1fr; margin: 14px 0; }
+  .feat dt { font-size: 12.5px; padding: 9px 10px 8px 0; }
+  .feat dd { font-size: 15px; line-height: 1.4; padding: 7px 0; }
+  .feat-compact { grid-template-columns: 96px 1fr; margin: 0; border-bottom: 0; }
+  .feat-compact dt:first-of-type, .feat-compact dd:first-of-type { border-top: 0; }
+  .zr-text .body { display: none; }
+  .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .shot { padding: 3px; border-radius: 5px; }
   .shot .cap { display: none; }
-  .gallery { gap: 8px; }
-  .shot { padding: 4px; }
   .lb { grid-template-columns: 1fr 1fr; padding: 12px; align-content: center; }
   .lb figure { grid-column: 1 / -1; grid-row: 1; }
   .lb-prev { justify-self: end; }
-  .timeline td:first-child { width: 92px; }
-  .kit { grid-template-columns: 86px 1fr; }
-  .tool-row { grid-template-columns: 56px 1fr; gap: 14px; }
-  .tile { width: 56px; height: 56px; font-size: 34px; }
-  .mail svg { width: 30px; height: 30px; }
+
+  /* cards: one column, short mats, back opens in place */
+  .plates { grid-template-columns: 1fr; gap: 10px; }
+  .flip { perspective: none; }
+  .flip-inner { display: block; height: auto; transition: none; transform: none !important; }
+  .face { backface-visibility: visible; -webkit-backface-visibility: visible; }
+  .front { height: auto; }
+  .plate-img { aspect-ratio: auto; height: 56px; }
+  .plate-img svg { height: 34px; }
+  .plate-img .no { font-size: 20px; left: 10px; top: 8px; }
+  .plate-body { padding: 12px 14px 14px; gap: 6px; }
+  .plate-body p { font-size: 15px; line-height: 1.4; }
+  .plate-body .stack { padding-top: 0; }
+  .flip-btn { padding: 8px 10px; font-size: 11px; }
+  .back { display: none; transform: none; margin-top: 6px; padding: 18px 14px 12px; box-shadow: inset 0 6px 0 var(--c); }
+  .flip.is-flipped .back { display: flex; }
+  .back .h4, .back .flip-btn { display: none; }
+  .back-text { margin: 0; gap: 8px; }
+  .back-text p { font-size: 15px; line-height: 1.45; }
+
+  /* community */
+  .tool-list { gap: 10px; }
+  .tool-row { grid-template-columns: 40px 1fr; gap: 12px; padding: 12px 14px; }
+  .tile { width: 40px; height: 40px; font-size: 26px; border-radius: 5px; }
+  .tool-row p { font-size: 15px; line-height: 1.4; margin-top: 6px; }
+  .tool-row .when { font-size: 11px; margin-top: 5px; }
+  .tool-row .stack { margin-top: 6px; }
+
+  /* about, record, contact */
+  .method { gap: 14px; }
+  .method .body { margin-top: 10px; }
+  .about-col { gap: 10px; }
+  .about-photo { display: none; }
+  .body-flush { font-size: 15px; }
+  .kit { grid-template-columns: 78px 1fr; }
+  .kit dt { font-size: 11px; padding-top: 9px; }
+  .kit dd { font-size: 15px; padding: 6px 0; }
+  .record { gap: 22px; }
+  .record .h2 { padding-bottom: 10px; margin-bottom: 0; }
+  .timeline tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .timeline td { display: block; padding: 0; border: 0; }
+  .timeline td:first-child { width: auto; padding: 0 0 3px; font-size: 11px; }
+  .timeline b { font-size: 17px; overflow-wrap: anywhere; }
+  .rows .mono { font-size: 12px; white-space: nowrap; overflow-wrap: normal; }
+  .timeline p { font-size: 15px; line-height: 1.4; margin-top: 4px; }
+  .timeline .badge { margin-top: 6px; font-size: 10px; padding: 4px 6px; }
+  .contact { gap: 16px; }
+  .mail { margin-top: 16px; gap: 10px; font-size: 21px; border-bottom-width: 3px; padding-bottom: 6px; }
+  .mail svg { width: 24px; height: 24px; }
+  .colophon { margin-top: 18px; padding-top: 10px; font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

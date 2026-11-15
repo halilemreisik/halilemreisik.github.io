@@ -82,22 +82,23 @@
     const buttons = card.querySelectorAll(".flip-btn");
     function show(flipped) {
       card.classList.toggle("is-flipped", flipped);
-      front.setAttribute("aria-hidden", String(flipped));
-      back.setAttribute("aria-hidden", String(!flipped));
-      buttons[0].tabIndex = flipped ? -1 : 0;
-      buttons[1].tabIndex = flipped ? 0 : -1;
       buttons[0].setAttribute("aria-pressed", String(flipped));
-      (flipped ? buttons[1] : buttons[0]).focus({ preventScroll: true });
+      syncFaces();
+      if (!narrow.matches) (flipped ? buttons[1] : buttons[0]).focus({ preventScroll: true });
     }
-    buttons[0].addEventListener("click", function () { show(true); });
+    // On phones the card does not flip: the same button opens and closes the back in place.
+    buttons[0].addEventListener("click", function () { show(narrow.matches ? !card.classList.contains("is-flipped") : true); });
     buttons[1].addEventListener("click", function () { show(false); });
   });
-  // On phones both faces are shown stacked (see style.css), so neither is hidden from assistive tech.
+  // Desktop hides the face that is turned away; on phones the front always stays and the back opens under it.
   function syncFaces() {
     flips.forEach(function (card) {
       const flipped = card.classList.contains("is-flipped");
+      const buttons = card.querySelectorAll(".flip-btn");
       card.querySelector(".front").setAttribute("aria-hidden", String(!narrow.matches && flipped));
-      card.querySelector(".back").setAttribute("aria-hidden", String(!narrow.matches && !flipped));
+      card.querySelector(".back").setAttribute("aria-hidden", String(!flipped));
+      buttons[0].tabIndex = !narrow.matches && flipped ? -1 : 0;
+      buttons[1].tabIndex = !narrow.matches && flipped ? 0 : -1;
     });
   }
   narrow.addEventListener("change", syncFaces);
