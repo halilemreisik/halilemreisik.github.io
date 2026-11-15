@@ -1,424 +1,489 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halil Emre Işık · ETH Zürich</title>
-  <meta name="description" content="Halil Emre Işık, Mechanical Engineering student at ETH Zürich, and a photographer & videographer. Projects, background, and contact." />
-  <meta name="author" content="Halil Emre Işık" />
-
-  <!-- Open Graph (nice link previews) -->
-  <meta property="og:title" content="Halil Emre Işık · ETH Zürich" />
-  <meta property="og:description" content="EE & IT student at ETH Zürich. Engineer, photographer, videographer." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="img/portrait.jpg" />
-
-  <!-- Fonts: Space Grotesk (display) · IBM Plex Sans (body) · IBM Plex Mono (labels) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Set theme BEFORE paint to avoid a flash of the wrong colour scheme. -->
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('theme');
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var theme = saved || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halil Emre Işık · ETH Zürich</title>
+<meta name="title-tr" content="Halil Emre Işık · Makine mühendisliği öğrencisi, fotoğrafçı">
+<meta name="title-en" content="Halil Emre Işık · Mechanical Engineering student, photographer">
+<meta name="title-de" content="Halil Emre Işık · Maschinenbaustudent, Fotograf">
+<meta name="description" content="Halil Emre Işık: Mechanical Engineering student at ETH Zürich, photographer and videographer. Photography, workshop projects, community work and contact.">
+<meta name="author" content="Halil Emre Işık">
+<meta name="theme-color" content="#f4c20d">
+<meta property="og:title" content="Halil Emre Işık">
+<meta property="og:description" content="Mechanical Engineering student at ETH Zürich · Photographer and videographer">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://halilemreisik.github.io/">
+<meta property="og:image" content="https://halilemreisik.github.io/img/hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script>
+/* set the language before first paint */
+(function(){var l=null;try{l=localStorage.getItem("hei-lang")}catch(e){}
+if(!l){var n=(navigator.language||"").toLowerCase().slice(0,2);l=(n==="tr"||n==="de")?n:"en"}
+document.documentElement.dataset.lang=l;document.documentElement.lang=l})();
+</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================ HEADER / NAV ============================ -->
-  <header class="site-header" id="top">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Halil Emre Işık, home">
-        <span class="brand-mark" aria-hidden="true">HEI</span>
-        <span class="brand-name">Halil&nbsp;Emre&nbsp;Işık</span>
-      </a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M9 5H5v14h14v-4M13 5h6v6M19 5l-9 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-flip" viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-3l2 2M20 4v4h-4M20 15a8 8 0 0 1-14 3l-2-2M4 20v-4h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M3 8l13 10L29 8" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+  <symbol id="i-people" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><rect x="7" y="6" width="8" height="8"/><path d="M3 27v-7h16v7"/><rect x="20" y="9" width="6" height="6"/><path d="M23 20h6v7"/></g></symbol>
+  <symbol id="i-bench" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M16 4l11 6v12l-11 6-11-6V10z"/><path d="M5 10l11 6 11-6M16 16v12"/></g></symbol>
+  <!-- plate pictograms -->
+  <symbol id="p-cad" viewBox="0 0 96 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><circle cx="24" cy="24" r="13"/><circle cx="24" cy="24" r="4"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.6 10.6l4.2 4.2M33.2 33.2l4.2 4.2M10.6 37.4l4.2-4.2M33.2 14.8l4.2-4.2"/><path d="M54 38h36M54 38V10M54 10l30 28M60 38v-5M68 38v-5M76 38v-5M84 38v-5"/></g></symbol>
+  <symbol id="p-print" viewBox="0 0 96 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M10 4h76M10 4v40M86 4v40M4 44h88"/><path d="M40 4v8h16V4M44 12l4 7 4-7"/><path d="M30 40h36M33 34h30M36 28h24M40 22h16"/></g></symbol>
+  <symbol id="p-chip" viewBox="0 0 96 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><rect x="34" y="10" width="28" height="28"/><rect x="43" y="19" width="10" height="10"/><path d="M40 10V3M48 10V3M56 10V3M40 38v7M48 38v7M56 38v7M34 17H22M34 24H10M34 31H22M62 17h12M62 24h24M62 31h12"/><circle cx="7" cy="24" r="3"/><circle cx="89" cy="24" r="3"/></g></symbol>
+  <symbol id="p-code" viewBox="0 0 96 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M28 10L12 24l16 14M68 10l16 14-16 14M54 6L42 42"/></g></symbol>
+</svg>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#toolkit">Toolkit</a>
-        <a href="#path">Path</a>
-        <a href="#contact">Contact</a>
-        <a href="portfolio.html">Portfolio</a>
-      </nav>
+<a class="skip" href="#main"><span lang="tr">İçeriğe geç</span><span lang="en">Skip to content</span><span lang="de">Zum Inhalt springen</span></a>
 
-      <div class="header-actions">
-        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch colour theme" aria-pressed="false">
-          <!-- Sun / moon icons; CSS shows the right one per theme -->
-          <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="4.2" />
-            <path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" />
-          </svg>
-          <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20.5 14.2A8.2 8.2 0 1 1 9.8 3.5a6.4 6.4 0 0 0 10.7 10.7z" />
-          </svg>
-        </button>
+<!-- Tab rail: one tab per chapter, in the chapter's board colour -->
+<nav class="rail" aria-label="Bölümler / Chapters / Kapitel">
+  <a href="#kapak" style="--board:var(--yellow)"><span lang="tr">Kapak</span><span lang="en">Cover</span><span lang="de">Titel</span></a>
+  <a href="#foto" style="--board:var(--orange)"><span lang="tr">Fotoğraf</span><span lang="en">Photo</span><span lang="de">Foto</span></a>
+  <a href="#atolye" style="--board:var(--grass)"><span lang="tr">Atölye</span><span lang="en">Workshop</span><span lang="de">Werkstatt</span></a>
+  <a href="#topluluk" style="--board:var(--teal)"><span lang="tr">Topluluk</span><span lang="en">Community</span><span lang="de">Vereine</span></a>
+  <a href="#hakkimda" class="on-dark" style="--board:var(--ultra)"><span lang="tr">Hakkımda</span><span lang="en">About</span><span lang="de">Über mich</span></a>
+  <a href="#ozgecmis" class="on-dark" style="--board:var(--violet)"><span lang="tr">Özgeçmiş</span><span lang="en">Record</span><span lang="de">Werdegang</span></a>
+  <a href="#iletisim" class="on-dark" style="--board:var(--sienna)"><span lang="tr">İletişim</span><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
+</nav>
 
-        <button id="nav-toggle" class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17" />
-          </svg>
-        </button>
-      </div>
-    </div>
+<main id="main">
 
-    <!-- Mobile dropdown nav -->
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#toolkit">Toolkit</a>
-      <a href="#path">Path</a>
-      <a href="#contact">Contact</a>
-      <a href="portfolio.html">Portfolio</a>
-    </nav>
-  </header>
+<!-- ================= COVER ================= -->
+<section class="chapter" id="kapak" style="--board:var(--yellow)">
+  <div class="leaf" data-spine-tr="HALİL EMRE IŞIK · PORTFOLYO · 2026" data-spine-en="HALİL EMRE IŞIK · PORTFOLIO · 2026" data-spine-de="HALİL EMRE IŞIK · PORTFOLIO · 2026">
+    <span class="holes" aria-hidden="true"></span>
 
-  <main id="main">
-
-    <!-- ============================ HERO COVER ============================ -->
-    <!-- Full-screen photo. Clean white name on top; scroll to reveal the rest. -->
-    <section class="hero-cover" id="home" aria-labelledby="cover-title">
-      <div class="hero-letterbox hero-letterbox--top" aria-hidden="true"></div>
-      <div class="hero-letterbox hero-letterbox--bot" aria-hidden="true"></div>
-      <img class="hero-cover__img" src="img/hero.webp" width="2000" height="1333"
-           alt="Halil Emre Işık beside a camera on a tripod, snow-capped Swiss Alps behind him." />
-      <div class="hero-cover__scrim" aria-hidden="true"></div>
-      <div class="hero-cover__inner wrap">
-        <p class="hero-cover__kicker">ETH Zürich · D-MAVT</p>
-        <div class="hero-cover__title-wrap">
-          <span class="hero-scope-line" aria-hidden="true"></span>
-          <h1 id="cover-title" class="hero-cover__title">Halil&nbsp;Emre&nbsp;Işık</h1>
-          <span class="hero-scope-line" aria-hidden="true"></span>
+    <header class="masthead">
+      <a class="wordmark" href="#kapak"><span lang="tr">PORTFOLYO</span><span lang="en">PORTFOLIO</span><span lang="de">PORTFOLIO</span></a>
+      <p class="tagline mono">2026</p>
+      <ul class="status">
+        <li><b class="mono">ETH ZÜRICH · D-MAVT</b><span><i class="dot dot-live"></i><span lang="tr">Makine mühendisliği, BSc</span><span lang="en">Mechanical Engineering, BSc</span><span lang="de">Maschinenbau, BSc</span></span></li>
+        <li><b class="mono">ZENITH.FRAME</b><span><i class="dot dot-dev"></i><span lang="tr">Fotoğraf ve video</span><span lang="en">Photo and video</span><span lang="de">Foto und Video</span></span></li>
+        <li><b class="mono">TURKUAZ</b><span><i class="dot dot-oss"></i><span lang="tr">Yönetim kurulu üyesi</span><span lang="en">Board member</span><span lang="de">Vorstandsmitglied</span></span></li>
+      </ul>
+      <div class="mast-actions">
+        <div class="lang-toggle" role="group" aria-label="Dil / Language / Sprache">
+          <button type="button" data-set="tr" aria-pressed="false" aria-label="Türkçe">TR</button>
+          <button type="button" data-set="en" aria-pressed="false" aria-label="English">EN</button>
+          <button type="button" data-set="de" aria-pressed="false" aria-label="Deutsch">DE</button>
         </div>
-        <p class="hero-cover__tag">
-          Mechanical&nbsp;Engineering, and a photographer behind the lens.
-        </p>
+        <a class="btn btn-line" href="https://www.instagram.com/zenith.frame/" target="_blank" rel="me noopener">Instagram<svg><use href="#i-out"/></svg></a>
       </div>
-      <a class="hero-cover__scroll" href="#intro" aria-label="Scroll to content">
-        <span>Scroll</span>
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
-      </a>
-    </section>
+    </header>
 
-    <!-- =============================== INTRO =============================== -->
-    <section class="section intro" id="intro" aria-label="Introduction">
-      <div class="wrap intro-grid">
-        <p class="lede reveal">
-          Mechanical&nbsp;Engineering student at
-          ETH&nbsp;Zürich, and a photographer behind the lens. I like building things
-          that work cleanly, whether that's a mechanism, a few lines of code, or a frame
-          of light in the Alps.
-        </p>
-
-        <div class="hero-actions reveal">
-          <a class="btn btn-primary" href="#contact">
-            Get in touch
-            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
+    <div class="cover-grid">
+      <div class="cover-main">
+        <h1 class="display"><span lang="tr" class="k">Halil Emre Işık</span></h1>
+        <p class="role"><span lang="tr">ETH Zürich'te makine mühendisliği öğrencisi<br>Fotoğrafçı ve videograf</span><span lang="en">Mechanical Engineering student at ETH Zürich<br>Photographer and videographer</span><span lang="de">Maschinenbaustudent an der ETH Zürich<br>Fotograf und Videograf</span></p>
+        <p class="lead"><span lang="tr">ETH Zürich'te makine mühendisliği okuyorum. Öncesinde aynı okulda üç yıl elektrik mühendisliği ve bilişim teknolojileri okudum. En sevdiğim yer, mekaniğin, elektroniğin ve yazılımın kesiştiği nokta.</span><span lang="en">I study Mechanical Engineering at ETH Zürich, after three years of Electrical Engineering and Information Technology at the same school. The spot I like best is where mechanics, electronics and software meet.</span><span lang="de">Ich studiere Maschinenbau an der ETH Zürich, davor drei Jahre Elektrotechnik und Informationstechnologie an derselben Hochschule. Am liebsten bin ich dort, wo Mechanik, Elektronik und Software zusammenkommen.</span></p>
+        <p class="lead"><span lang="tr">Dersliklerin dışında elimde ya kamera ya da drone kumandası oluyor. Alp manzaralarından kısa filmlere kadar çekiyor, kurguluyor ve yayınlıyorum. Zürih'teki öğrenci topluluklarının yönetiminde de yer alıyorum.</span><span lang="en">Outside the lecture halls I'm holding either a camera or a drone controller. I shoot, edit and publish, from alpine landscapes to short films, and I help run student associations in Zürich.</span><span lang="de">Ausserhalb der Hörsäle halte ich entweder eine Kamera oder eine Drohnensteuerung in der Hand. Ich filme, schneide und veröffentliche, von Alpenlandschaften bis zu Kurzfilmen, und engagiere mich in Zürcher Studierendenvereinen.</span></p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#foto"><span lang="tr">Fotoğraflara bak</span><span lang="en">See the photos</span><span lang="de">Zu den Fotos</span><svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#iletisim"><span lang="tr">İletişim</span><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
         </div>
-
-        <ul class="hero-meta reveal">
-          <li><span class="meta-k">Based in</span> Zürich&nbsp;/&nbsp;Winterthur, CH</li>
-          <li><span class="meta-k">Focus</span> Mechatronics · Robotics · Energy</li>
-          <li><span class="meta-k">Languages</span> TR · EN · DE · AR</li>
+        <ul class="links mono">
+          <li><a href="https://www.linkedin.com/in/halilemreisik/" target="_blank" rel="me noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/halilemreisik/" target="_blank" rel="me noopener">Instagram</a></li>
+          <li><a href="https://github.com/halilemreisik" target="_blank" rel="me noopener">GitHub</a></li>
+          <li><a href="mailto:halilemreisik@gmail.com">halilemreisik@gmail.com</a></li>
         </ul>
       </div>
-    </section>
 
-    <!-- ================================ ABOUT =============================== -->
-    <section class="section section--alt" id="about" aria-labelledby="about-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="section-no">01</span>
-          <h2 id="about-title" class="section-title">About</h2>
-        </header>
-
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="big">
-              I'm an undergraduate at ETH&nbsp;Zürich studying Mechanical Engineering, drawn to the point where mechanics,
-              electronics and software meet.
-            </p>
-            <p>
-              Before Zürich I finished both a German Abitur and a Turkish Lise diploma in
-              Istanbul, graduating as class valedictorian in mathematics and physics. That mix
-              of rigour and curiosity still shapes how I work: understand the fundamentals,
-              then build something real with them.
-            </p>
-            <p>
-              Outside the lecture halls I'm a photographer and videographer. I shoot, edit and
-              produce, from alpine landscapes to short films, and I help run student life in
-              Zürich. The engineering and the camera feed each other more than you'd think.
-            </p>
-          </div>
-
-          <aside class="about-aside reveal" aria-label="Quick facts">
-            <dl class="facts">
-              <div class="fact">
-                <dt>Programme</dt>
-                <dd>BSc Mechanical Engineering, ETH Zürich <span class="muted">(since 2026)</span><br>BSc EE &amp; IT, ETH Zürich <span class="muted">(2023–2026)</span></dd>
-              </div>
-              <div class="fact">
-                <dt>Languages</dt>
-                <dd>
-                  <span class="lang"><b>Turkish</b> <i>native</i></span>
-                  <span class="lang"><b>English</b> <i>C2</i></span>
-                  <span class="lang"><b>German</b> <i>C1</i></span>
-                  <span class="lang"><b>Arabic</b> <i>A2</i></span>
-                </dd>
-              </div>
-              <div class="fact">
-                <dt>Roles</dt>
-                <dd>
-                  <span class="role-item"><b>Turkuaz Students Association</b> <a class="role-ig" href="https://www.instagram.com/turkuazstudents/" target="_blank" rel="noopener" aria-label="Turkuaz on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><defs><linearGradient id="ig-1" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.25" stop-color="#FA7E1E"/><stop offset="0.5" stop-color="#D62976"/><stop offset="0.75" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-1)" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="url(#ig-1)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="url(#ig-1)"/></svg></a> <i>ETH &amp; UZH</i><br>Presidency 2024–2025 · Board 2024–now</span>
-                  <span class="role-item"><b>Muslim Students Association</b> <a class="role-ig" href="https://www.instagram.com/msazurich/" target="_blank" rel="noopener" aria-label="Muslim Students Association on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><defs><linearGradient id="ig-2" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.25" stop-color="#FA7E1E"/><stop offset="0.5" stop-color="#D62976"/><stop offset="0.75" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-2)" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="url(#ig-2)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="url(#ig-2)"/></svg></a> <i>ETH &amp; UZH</i><br>Vice Presidency 2024–2026</span>
-                  <span class="role-item"><b>İELSBK</b> <a class="role-ig" href="https://www.instagram.com/ielsbk/" target="_blank" rel="noopener" aria-label="İELSBK on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><defs><linearGradient id="ig-3" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.25" stop-color="#FA7E1E"/><stop offset="0.5" stop-color="#D62976"/><stop offset="0.75" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-3)" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="url(#ig-3)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="url(#ig-3)"/></svg></a> <i>İstanbul Erkek Lisesi</i><br>Co-Presidency 2021–2023</span>
-                  <span class="role-item"><b>City and Istanbul Association</b> <i>İstanbul Erkek Lisesi</i><br>Presidency 2022–2023</span>
-                </dd>
-              </div>
-            </dl>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================ WORK =============================== -->
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="section-no">02</span>
-          <h2 id="work-title" class="section-title">What I do</h2>
-          <p class="section-sub">Three threads I keep pulling on.</p>
-        </header>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-top">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1"/></svg>
-              </span>
-              <span class="card-no">/01</span>
-            </div>
-            <h3>Engineering</h3>
-            <p>
-              From circuits to CAD: three years of EE gave me the circuitry side, mechanical
-              engineering adds mechanisms and motion. I design in Siemens NX, Fusion 360 and
-              AutoCAD, print prototypes to test ideas fast, and write C++, Python and MATLAB
-              when a project needs a brain.
-            </p>
-            <ul class="tag-row">
-              <li>3D design</li><li>Mechatronics</li><li>Circuitry</li><li>Projects</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.2l1-1.6A1 1 0 0 1 8.6 4h6.8a1 1 0 0 1 .85.4l1 1.6h1.2A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"/><circle cx="12" cy="12.5" r="3.3"/></svg>
-              </span>
-              <span class="card-no">/02</span>
-            </div>
-            <h3>Visual storytelling</h3>
-            <p>
-              Photography and videography end-to-end: shooting, editing and production. Fluent
-              in video editing, motion graphics, photo editing and retouching, graphic design
-              and layout, with an eye trained on light and composition.
-            </p>
-            <ul class="tag-row">
-              <li>Photography</li><li>Video</li><li>Editing</li><li>Design</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top">
-              <span class="card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M16 13.4a4.6 4.6 0 0 1 4.5 4.6"/></svg>
-              </span>
-              <span class="card-no">/03</span>
-            </div>
-            <h3>Community &amp; leadership</h3>
-            <p>
-              Board member and past President of Turkuaz Students Association (ETH &amp; UZH),
-              and former Vice-President of the Muslim Students Association (ETH &amp; UZH).
-              Earlier, in high school, I co-chaired İELSBK, which runs Turkey's largest
-              international social-sciences workshop, and led the City and Istanbul Association.
-            </p>
-            <ul class="tag-row">
-              <li>Events</li><li>Organising</li><li>People</li><li>Outreach</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =============================== TOOLKIT ============================= -->
-    <section class="section section--alt" id="toolkit" aria-labelledby="toolkit-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="section-no">03</span>
-          <h2 id="toolkit-title" class="section-title">Toolkit</h2>
-          <p class="section-sub">Things I reach for, on the bench and off it.</p>
-        </header>
-
-        <div class="toolkit-grid">
-          <div class="tool-group reveal">
-            <h3>Code &amp; AI</h3>
-            <ul class="chips">
-              <li>C++</li><li>Python</li><li>MATLAB</li><li>AI automation</li><li>LLM integrations</li><li>Prompt engineering</li>
-            </ul>
-          </div>
-          <div class="tool-group reveal">
-            <h3>CAD &amp; hardware</h3>
-            <ul class="chips">
-              <li>Siemens NX</li><li>Fusion 360</li><li>AutoCAD 2D / 3D</li><li>Generative design</li><li>3D printing</li><li>Mobile repair</li><li>Watchmaking tools</li>
-            </ul>
-          </div>
-          <div class="tool-group reveal">
-            <h3>Creative suite</h3>
-            <ul class="chips">
-              <li>Video editing</li><li>Motion graphics</li><li>Photo editing</li><li>Photo manipulation</li><li>Graphic design</li><li>Layout design</li>
-            </ul>
-          </div>
-          <div class="tool-group reveal">
-            <h3>Off the bench</h3>
-            <ul class="chips">
-              <li>Semi-pro archery</li><li>Content creation</li><li>Social media</li><li>Forum moderation</li>
-            </ul>
+      <aside class="cover-side">
+        <div class="panel id-panel">
+          <img src="img/portrait-sq.webp" width="480" height="480" alt="Halil Emre Işık">
+          <div>
+            <p class="id-name"><span lang="en" class="k">ETH Zürich</span></p>
+            <p class="id-meta"><span lang="tr">Makine Mühendisliği · D-MAVT<br>Zürih / Winterthur</span><span lang="en">Mechanical Engineering · D-MAVT<br>Zürich / Winterthur</span><span lang="de">Maschineningenieurwissenschaften · D-MAVT<br>Zürich / Winterthur</span></p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ================================ PATH =============================== -->
-    <section class="section" id="path" aria-labelledby="path-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="section-no">04</span>
-          <h2 id="path-title" class="section-title">Path so far</h2>
-        </header>
-
-        <ol class="timeline">
-          <li class="t-item reveal">
-            <div class="t-when">2026–now</div>
-            <div class="t-body">
-              <h3>BSc Mechanical Engineering</h3>
-              <p class="t-place">ETH Zürich · Switzerland</p>
-            </div>
-          </li>
-          <li class="t-item reveal">
-            <div class="t-when">2023–2026</div>
-            <div class="t-body">
-              <h3>BSc Electrical Engineering &amp; Information Technology</h3>
-              <p class="t-place">ETH Zürich · Switzerland</p>
-              <p class="t-note">Electronics &amp; automation, electricity &amp; energy, and the broad EEIT core.</p>
-            </div>
-          </li>
-          <li class="t-item reveal">
-            <div class="t-when">2018–2023</div>
-            <div class="t-body">
-              <h3>German Abitur · Istanbuler Gymnasium</h3>
-              <p class="t-place">Istanbul · Final grade 2.1</p>
-              <p class="t-note"><span class="badge">Class valedictorian</span> in mathematics &amp; physics.</p>
-            </div>
-          </li>
-          <li class="t-item reveal">
-            <div class="t-when">2018–2023</div>
-            <div class="t-body">
-              <h3>Turkish Lise Diploma · İstanbul Erkek Lisesi</h3>
-              <p class="t-place">Istanbul · Türkiye</p>
-              <p class="t-note">Ranked <strong>331st of 971.657</strong> in the national high-school entrance exam.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- =============================== CONTACT ============================= -->
-    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
-      <div class="wrap">
-        <div class="contact-card reveal">
-          <div class="contact-lead">
-            <span class="section-no">05</span>
-            <h2 id="contact-title" class="section-title">Let's talk</h2>
-            <p class="section-sub">
-              Open to internships, collaborations, photo &amp; video work, or just a good
-              conversation about engineering and the mountains.
-            </p>
-          </div>
-
-          <ul class="contact-links">
-            <li>
-              <a href="mailto:halilemreisik@gmail.com">
-                <span class="cl-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg>
-                </span>
-                <span class="cl-text"><span class="cl-k">Personal</span><span class="cl-v">halilemreisik@gmail.com</span></span>
-                <span class="cl-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:haisik@ethz.ch">
-                <span class="cl-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/><path d="M3 19l6-4M21 19l-6-4" opacity="0.4"/></svg>
-                </span>
-                <span class="cl-text"><span class="cl-k">Academic &amp; Business</span><span class="cl-v">haisik@ethz.ch</span></span>
-                <span class="cl-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/halilemreisik/" target="_blank" rel="noopener">
-                <span class="cl-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21h-4z"/></svg>
-                </span>
-                <span class="cl-text"><span class="cl-k">LinkedIn</span><span class="cl-v">in/halilemreisik</span></span>
-                <span class="cl-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/halilemreisik/" target="_blank" rel="noopener">
-                <span class="cl-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-                </span>
-                <span class="cl-text"><span class="cl-k">Instagram · Personal</span><span class="cl-v">@halilemreisik</span></span>
-                <span class="cl-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/zenith.frame/" target="_blank" rel="noopener">
-                <span class="cl-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-                </span>
-                <span class="cl-text"><span class="cl-k">Instagram · Hobby &amp; Photography</span><span class="cl-v">@zenith.frame</span></span>
-                <span class="cl-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
+        <div class="panel">
+          <p class="panel-title mono"><span lang="tr">Künye</span><span lang="en">At a glance</span><span lang="de">Steckbrief</span></p>
+          <ul class="rows">
+            <li><span><span lang="tr">Odak</span><span lang="en">Focus</span><span lang="de">Schwerpunkt</span></span><span class="more"><span lang="tr">Mekatronik · Robotik · Enerji</span><span lang="en">Mechatronics · Robotics · Energy</span><span lang="de">Mechatronik · Robotik · Energie</span></span></li>
+            <li><span><span lang="tr">Diller</span><span lang="en">Languages</span><span lang="de">Sprachen</span></span><span class="more">TR · EN · DE · AR</span></li>
+            <li><span><span lang="tr">Kamera</span><span lang="en">Camera</span><span lang="de">Kamera</span></span><span class="more">Sony A7C · DJI Avata 2</span></li>
+            <li><span><span lang="tr">Tezgâh</span><span lang="en">Bench</span><span lang="de">Werkbank</span></span><span class="more">Bambu Lab P1S</span></li>
           </ul>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- =============================== FOOTER ============================== -->
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span class="foot-brand">Halil Emre Işık</span>
-      <span class="foot-meta">ETH Zürich · D-MAVT · <span id="year">2026</span></span>
-      <a class="foot-top" href="#top">Back to top ↑</a>
+        <div class="panel">
+          <p class="panel-title mono"><span lang="tr">Son gelişmeler</span><span lang="en">Recent</span><span lang="de">Zuletzt</span></p>
+          <table class="log mono">
+            <tr><td>2026</td><td><span lang="tr">ETH'de makine mühendisliğine geçtim</span><span lang="en">Switched to Mechanical Engineering at ETH</span><span lang="de">Wechsel zum Maschinenbau an der ETH</span></td></tr>
+            <tr><td>2025</td><td><span lang="tr">Turkuaz'daki başkanlık dönemimi tamamladım</span><span lang="en">Completed my term as President of Turkuaz</span><span lang="de">Amtszeit als Präsident von Turkuaz abgeschlossen</span></td></tr>
+            <tr><td>2024</td><td><span lang="tr">Turkuaz ve MSA yönetimlerine katıldım</span><span lang="en">Joined the boards of Turkuaz and the MSA</span><span lang="de">Eintritt in die Vorstände von Turkuaz und MSA</span></td></tr>
+          </table>
+        </div>
+      </aside>
     </div>
-  </footer>
 
-  <script src="js/main.js"></script>
+    <div class="contents">
+      <p class="contents-title mono"><span lang="tr">Bölümler</span><span lang="en">Chapters</span><span lang="de">Kapitel</span></p>
+      <div class="contents-row">
+        <a class="entry" href="#foto" style="--c:var(--orange)">
+          <span class="entry-img"><img src="img/gallery/ch-4-thumb.webp" width="900" height="600" alt="" loading="lazy"></span>
+          <span class="entry-txt"><b><span lang="tr">Fotoğraf</span><span lang="en">Photography</span><span lang="de">Fotografie</span></b><span lang="tr">Alpler, İstanbul ve gökyüzünden kareler.</span><span lang="en">Frames from the Alps, Istanbul and the sky.</span><span lang="de">Bilder aus den Alpen, Istanbul und vom Himmel.</span></span>
+          <span class="badge badge-dev"><span lang="tr">11 kare</span><span lang="en">11 frames</span><span lang="de">11 Bilder</span></span>
+        </a>
+        <a class="entry" href="#atolye" style="--c:var(--grass)">
+          <span class="entry-img tile-img"><svg><use href="#i-bench"/></svg></span>
+          <span class="entry-txt"><b><span lang="tr">Atölye</span><span lang="en">Workshop</span><span lang="de">Werkstatt</span></b><span lang="tr">CAD, 3D baskı, elektronik ve kod.</span><span lang="en">CAD, 3D printing, electronics and code.</span><span lang="de">CAD, 3D-Druck, Elektronik und Code.</span></span>
+          <span class="badge badge-ok"><span lang="tr">4 alan</span><span lang="en">4 fields</span><span lang="de">4 Bereiche</span></span>
+        </a>
+        <a class="entry" href="#topluluk" style="--c:var(--teal)">
+          <span class="entry-img tile-img"><svg><use href="#i-people"/></svg></span>
+          <span class="entry-txt"><b><span lang="tr">Topluluk</span><span lang="en">Community</span><span lang="de">Engagement</span></b><span lang="tr">Zürih ve İstanbul'da öğrenci toplulukları.</span><span lang="en">Student associations in Zürich and Istanbul.</span><span lang="de">Studierendenvereine in Zürich und Istanbul.</span></span>
+          <span class="badge badge-oss"><span lang="tr">4 görev</span><span lang="en">4 roles</span><span lang="de">4 Ämter</span></span>
+        </a>
+        <a class="entry" href="#hakkimda" style="--c:var(--ultra)">
+          <span class="entry-img"><img src="img/portrait-sq.webp" width="480" height="480" alt="" loading="lazy"></span>
+          <span class="entry-txt"><b><span lang="tr">Hakkımda</span><span lang="en">About me</span><span lang="de">Über mich</span></b><span lang="tr">Kısa hikâye, diller, araçlar ve özgeçmiş.</span><span lang="en">The short story, languages, tools and record.</span><span lang="de">Kurz erzählt, Sprachen, Werkzeuge und Werdegang.</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHOTOGRAPHY ================= -->
+<section class="chapter" id="foto" style="--board:var(--orange)">
+  <div class="leaf" data-spine-tr="FOTOĞRAF · ZENITH.FRAME" data-spine-en="PHOTOGRAPHY · ZENITH.FRAME" data-spine-de="FOTOGRAFIE · ZENITH.FRAME">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="zr">
+      <div class="zr-text">
+        <div class="title-row">
+          <h2 class="h2"><span lang="tr">Objektifin ardından</span><span lang="en">Through the lens</span><span lang="de">Durch die Linse</span></h2>
+          <span class="badge badge-dev">ZENITH.FRAME</span>
+        </div>
+        <p class="lead"><span lang="tr">Büyük bir portfolyo değil, sevdiğim bir avuç kare: İsviçre'den Türkiye'ye ve ikisinin arasındaki gökyüzüne. 2018'den beri kamerayla, sonrasında drone ile çekiyorum. Çekimden son kurguya kadar bütün süreç bende.</span><span lang="en">Not a grand portfolio, just a handful of frames I'm fond of, from Switzerland to Türkiye and the skies in between. I have been shooting since 2018, first with cameras and later with drones, and I handle the whole pipeline from the shot to the final edit.</span><span lang="de">Kein grosses Portfolio, nur eine Handvoll Bilder, die ich mag, von der Schweiz bis in die Türkei und vom Himmel dazwischen. Ich fotografiere seit 2018, zuerst mit der Kamera, später auch mit der Drohne, und mache vom Auslösen bis zum fertigen Schnitt alles selbst.</span></p>
+        <dl class="feat">
+          <dt><span lang="tr">Havadan</span><span lang="en">From the air</span><span lang="de">Aus der Luft</span></dt>
+          <dd><span lang="tr">DJI Avata 2 ile FPV uçuşlar, yerden bakmanın yetmediği manzaralar için.</span><span lang="en">FPV flights with a DJI Avata 2, for the views the ground can't give.</span><span lang="de">FPV-Flüge mit der DJI Avata 2, für Ansichten, die es vom Boden aus nicht gibt.</span></dd>
+          <dt><span lang="tr">Yerden</span><span lang="en">On the ground</span><span lang="de">Am Boden</span></dt>
+          <dd><span lang="tr">Sony A7C ile manzara, şehir ve pist kenarında uçak fotoğrafları.</span><span lang="en">Landscapes, cities and aircraft from the runway fence, on a Sony A7C.</span><span lang="de">Landschaften, Städte und Flugzeuge am Pistenzaun, mit der Sony A7C.</span></dd>
+          <dt><span lang="tr">Teknik</span><span lang="en">Technique</span><span lang="de">Technik</span></dt>
+          <dd><span lang="tr">Uzun pozlama, panning ve time-lapse. Gece gökyüzü için stacking, yakın plan için odak istifleme.</span><span lang="en">Long exposure, panning and time-lapse. Stacking for the night sky, focus stacking up close.</span><span lang="de">Langzeitbelichtung, Mitzieher und Zeitraffer. Stacking für den Nachthimmel, Focus Stacking im Nahbereich.</span></dd>
+          <dt><span lang="tr">Kurgu</span><span lang="en">Post</span><span lang="de">Nachbearbeitung</span></dt>
+          <dd><span lang="tr">Lightroom ve Photoshop'ta rötuş, Premiere Pro ve After Effects'te kurgu ve hareketli grafik.</span><span lang="en">Retouching in Lightroom and Photoshop, editing and motion graphics in Premiere Pro and After Effects.</span><span lang="de">Retusche in Lightroom und Photoshop, Schnitt und Motion Graphics in Premiere Pro und After Effects.</span></dd>
+        </dl>
+        <p class="body"><span lang="tr">Bir parçalı güneş tutulmasını İsviçre'den ND filtre ve geniş açılı time-lapse ile kaydetmiştim, hâlâ en sevdiğim çekimlerden biri. Daha fazlası Instagram'da, zenith.frame hesabında. Paylaşımları Türkçe, İngilizce ve Almanca yazıyorum.</span><span lang="en">I once recorded a partial solar eclipse from Switzerland with an ND filter and a wide-angle time-lapse, still one of my favourite shoots. There is more on Instagram at zenith.frame, where I write every caption in Turkish, English and German.</span><span lang="de">Eine partielle Sonnenfinsternis habe ich einmal von der Schweiz aus mit ND-Filter und Weitwinkel-Zeitraffer festgehalten, bis heute eine meiner liebsten Aufnahmen. Mehr gibt es auf Instagram unter zenith.frame, mit Texten auf Türkisch, Englisch und Deutsch.</span></p>
+        <p class="stack mono">Sony A7C · DJI Avata 2 · Lightroom · Photoshop · Premiere Pro · After Effects</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="https://www.instagram.com/zenith.frame/" target="_blank" rel="me noopener"><span lang="en" class="k">@zenith.frame</span><svg><use href="#i-out"/></svg></a>
+          <a class="btn btn-line" href="https://www.instagram.com/halilemreisik/" target="_blank" rel="me noopener"><span lang="en" class="k">@halilemreisik</span><svg><use href="#i-out"/></svg></a>
+        </div>
+      </div>
+      <div class="prints" aria-hidden="true">
+        <figure class="print"><img src="img/gallery/ch-4-mid.webp" width="1100" height="733" alt="" loading="lazy"><figcaption><span><span lang="tr">Zürih</span><span lang="en">Zürich</span><span lang="de">Zürich</span></span><span>N° 01</span></figcaption></figure>
+        <figure class="print"><img src="img/gallery/tr-1-mid.webp" width="1100" height="733" alt="" loading="lazy"><figcaption><span><span lang="tr">İstanbul</span><span lang="en">Istanbul</span><span lang="de">Istanbul</span></span><span>N° 02</span></figcaption></figure>
+        <figure class="print"><img src="img/gallery/sky-4-mid.webp" width="1100" height="733" alt="" loading="lazy"><figcaption><span><span lang="tr">Sis denizi</span><span lang="en">Sea of fog</span><span lang="de">Nebelmeer</span></span><span>N° 03</span></figcaption></figure>
+      </div>
+    </div>
+
+    <p class="sub-head mono"><span><span lang="tr">Kareler</span><span lang="en">Frames</span><span lang="de">Bilder</span></span><span><span lang="tr">Büyütmek için bir kareye dokunun</span><span lang="en">Tap a frame to open it larger</span><span lang="de">Zum Vergrössern ein Bild antippen</span></span></p>
+    <div class="gallery">
+      <button class="shot shot-wide" type="button" data-full="img/gallery/ch-4.webp" data-cap-tr="Zürih, mavi saat" data-cap-en="Zürich, blue hour" data-cap-de="Zürich, blaue Stunde"><img src="img/gallery/ch-4-thumb.webp" width="900" height="600" loading="lazy" alt="Zürich, blue hour"><span class="cap"><span lang="tr">Zürih, mavi saat</span><span lang="en">Zürich, blue hour</span><span lang="de">Zürich, blaue Stunde</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/tr-1.webp" data-cap-tr="Kız Kulesi, İstanbul" data-cap-en="Maiden&#x27;s Tower, Istanbul" data-cap-de="Mädchenturm, Istanbul"><img src="img/gallery/tr-1-thumb.webp" width="900" height="600" loading="lazy" alt="Maiden&#x27;s Tower, Istanbul"><span class="cap"><span lang="tr">Kız Kulesi, İstanbul</span><span lang="en">Maiden's Tower, Istanbul</span><span lang="de">Mädchenturm, Istanbul</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/sky-4.webp" data-cap-tr="Sis denizinin üstünde" data-cap-en="Above the sea of fog" data-cap-de="Über dem Nebelmeer"><img src="img/gallery/sky-4-thumb.webp" width="900" height="600" loading="lazy" alt="Above the sea of fog"><span class="cap"><span lang="tr">Sis denizinin üstünde</span><span lang="en">Above the sea of fog</span><span lang="de">Über dem Nebelmeer</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/ch-1.webp" data-cap-tr="Kar altında, İsviçre" data-cap-en="Under snow, Switzerland" data-cap-de="Unter Schnee, Schweiz"><img src="img/gallery/ch-1-thumb.webp" width="900" height="600" loading="lazy" alt="Under snow, Switzerland"><span class="cap"><span lang="tr">Kar altında, İsviçre</span><span lang="en">Under snow, Switzerland</span><span lang="de">Unter Schnee, Schweiz</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/ch-3.webp" data-cap-tr="Peronda, İsviçre" data-cap-en="On the platform, Switzerland" data-cap-de="Am Gleis, Schweiz"><img src="img/gallery/ch-3-thumb.webp" width="900" height="600" loading="lazy" alt="On the platform, Switzerland"><span class="cap"><span lang="tr">Peronda, İsviçre</span><span lang="en">On the platform, Switzerland</span><span lang="de">Am Gleis, Schweiz</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/sky-2.webp" data-cap-tr="Panning, havalimanı" data-cap-en="Panning at the airport" data-cap-de="Mitzieher am Flughafen"><img src="img/gallery/sky-2-thumb.webp" width="900" height="600" loading="lazy" alt="Panning at the airport"><span class="cap"><span lang="tr">Panning, havalimanı</span><span lang="en">Panning at the airport</span><span lang="de">Mitzieher am Flughafen</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/tr-2.webp" data-cap-tr="Alacakaranlık, Türkiye" data-cap-en="Twilight, Türkiye" data-cap-de="Dämmerung, Türkei"><img src="img/gallery/tr-2-thumb.webp" width="900" height="600" loading="lazy" alt="Twilight, Türkiye"><span class="cap"><span lang="tr">Alacakaranlık, Türkiye</span><span lang="en">Twilight, Türkiye</span><span lang="de">Dämmerung, Türkei</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/sky-3.webp" data-cap-tr="Pistin üstünde" data-cap-en="Over the runway" data-cap-de="Über der Piste"><img src="img/gallery/sky-3-thumb.webp" width="900" height="600" loading="lazy" alt="Over the runway"><span class="cap"><span lang="tr">Pistin üstünde</span><span lang="en">Over the runway</span><span lang="de">Über der Piste</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/ch-2.webp" data-cap-tr="Yaban hayatı, İsviçre" data-cap-en="Wildlife, Switzerland" data-cap-de="Wildtier, Schweiz"><img src="img/gallery/ch-2-thumb.webp" width="900" height="600" loading="lazy" alt="Wildlife, Switzerland"><span class="cap"><span lang="tr">Yaban hayatı, İsviçre</span><span lang="en">Wildlife, Switzerland</span><span lang="de">Wildtier, Schweiz</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/tr-3.webp" data-cap-tr="Yukarı bakış, Türkiye" data-cap-en="Looking up, Türkiye" data-cap-de="Blick nach oben, Türkei"><img src="img/gallery/tr-3-thumb.webp" width="900" height="600" loading="lazy" alt="Looking up, Türkiye"><span class="cap"><span lang="tr">Yukarı bakış, Türkiye</span><span lang="en">Looking up, Türkiye</span><span lang="de">Blick nach oben, Türkei</span></span></button>
+      <button class="shot" type="button" data-full="img/gallery/sky-1.webp" data-cap-tr="Bulutların üstünde" data-cap-en="Above the clouds" data-cap-de="Über den Wolken"><img src="img/gallery/sky-1-thumb.webp" width="900" height="600" loading="lazy" alt="Above the clouds"><span class="cap"><span lang="tr">Bulutların üstünde</span><span lang="en">Above the clouds</span><span lang="de">Über den Wolken</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKSHOP ================= -->
+<section class="chapter" id="atolye" style="--board:var(--grass)">
+  <div class="leaf" data-spine-tr="ATÖLYE" data-spine-en="WORKSHOP" data-spine-de="WERKSTATT">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="chapter-head">
+      <h2 class="h2"><span lang="tr">Atölye</span><span lang="en">Workshop</span><span lang="de">Werkstatt</span></h2>
+      <p class="chapter-sub"><span lang="tr">Devreden CAD'e: temiz çalışan şeyler yapmayı seviyorum. Bu bir mekanizma da olabilir, birkaç satır kod da. Kartların arkasında ayrıntılar var.</span><span lang="en">From circuits to CAD: I like building things that work cleanly, whether that's a mechanism or a few lines of code. Flip a card for the details.</span><span lang="de">Von der Schaltung bis zum CAD: Ich baue gern Dinge, die sauber funktionieren, ob Mechanismus oder ein paar Zeilen Code. Auf der Rückseite der Karten stehen die Details.</span></p>
+    </div>
+    <div class="plates">
+
+      <article class="flip" style="--c:var(--yellow)">
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="plate-img on-light"><span class="no">01</span><svg viewBox="0 0 96 48"><use href="#p-cad"/></svg></div>
+          <div class="plate-body">
+            <h3 class="h4"><span lang="tr">Mekanik tasarım</span><span lang="en">Mechanical design</span><span lang="de">Konstruktion</span></h3>
+            <p><span lang="tr">Mekanizmaları ve parçaları Siemens NX, Fusion 360 ve AutoCAD'de tasarlıyorum. Bir fikri önce ekranda kuruyor, sonra hızlıca basıp deniyorum.</span><span lang="en">I design mechanisms and parts in Siemens NX, Fusion 360 and AutoCAD. An idea gets built on screen first, then printed and tested fast.</span><span lang="de">Mechanismen und Bauteile konstruiere ich in Siemens NX, Fusion 360 und AutoCAD. Eine Idee entsteht zuerst am Bildschirm, dann wird sie schnell gedruckt und getestet.</span></p>
+            <p class="stack mono">Siemens NX · Fusion 360 · AutoCAD 2D / 3D · Generative design</p>
+            <button class="flip-btn mono" type="button" aria-pressed="false"><svg><use href="#i-flip"/></svg><span lang="tr">Daha fazla</span><span lang="en">More</span><span lang="de">Mehr</span></button>
+          </div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <h3 class="h4"><span lang="tr">Mekanik tasarım</span><span lang="en">Mechanical design</span><span lang="de">Konstruktion</span></h3>
+          <div class="back-text"><p><span lang="tr">Makine mühendisliği işin mekanizma ve hareket tarafını veriyor, üç yıllık elektrik mühendisliği geçmişim de devre tarafını. İkisini aynı projede buluşturmak en sevdiğim kısım.</span><span lang="en">Mechanical engineering brings the mechanisms and motion; three years of electrical engineering brought the circuitry. Getting both into the same project is the part I enjoy most.</span><span lang="de">Der Maschinenbau liefert Mechanismen und Bewegung, drei Jahre Elektrotechnik die Schaltungsseite. Beides im selben Projekt zusammenzubringen, macht mir am meisten Freude.</span></p><p><span lang="tr">Odağım mekatronik, robotik ve enerji sistemleri.</span><span lang="en">My focus is on mechatronics, robotics and energy systems.</span><span lang="de">Mein Schwerpunkt liegt auf Mechatronik, Robotik und Energiesystemen.</span></p></div>
+          <button class="flip-btn mono" type="button" tabindex="-1"><svg><use href="#i-flip"/></svg><span lang="tr">Ön yüz</span><span lang="en">Front</span><span lang="de">Vorderseite</span></button>
+        </div>
+      </div>
+      </article>
+
+      <article class="flip" style="--c:var(--orange)">
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="plate-img"><span class="no">02</span><svg viewBox="0 0 96 48"><use href="#p-print"/></svg></div>
+          <div class="plate-body">
+            <h3 class="h4"><span lang="tr">3D baskı</span><span lang="en">3D printing</span><span lang="de">3D-Druck</span></h3>
+            <p><span lang="tr">Kendi Bambu Lab P1S yazıcımda işlevsel parçalar ve prototipler basıyorum. Çoğu, gündelik hayatta fark ettiğim küçük bir eksiği kapatmak için.</span><span lang="en">I print functional parts and prototypes on my own Bambu Lab P1S. Most of them exist to fix some small thing I noticed was missing in daily life.</span><span lang="de">Auf meinem eigenen Bambu Lab P1S drucke ich funktionale Teile und Prototypen. Die meisten schliessen eine kleine Lücke, die mir im Alltag aufgefallen ist.</span></p>
+            <p class="stack mono">Bambu Lab P1S · PETG · Fusion 360</p>
+            <button class="flip-btn mono" type="button" aria-pressed="false"><svg><use href="#i-flip"/></svg><span lang="tr">Tezgâhtan</span><span lang="en">From the bench</span><span lang="de">Von der Werkbank</span></button>
+          </div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <h3 class="h4"><span lang="tr">Tezgâhtan</span><span lang="en">From the bench</span><span lang="de">Von der Werkbank</span></h3>
+          <dl class="feat feat-compact">
+            <dt><span lang="en" class="k">Scooter</span></dt>
+            <dd><span lang="tr">Elektrikli scooter için PETG'den şişe tutucu.</span><span lang="en">A bottle holder in PETG for my electric scooter.</span><span lang="de">Ein Flaschenhalter aus PETG für meinen E-Scooter.</span></dd>
+            <dt><span lang="tr">Klavye</span><span lang="en">Keyboard</span><span lang="de">Tastatur</span></dt>
+            <dd><span lang="tr">Logitech G413 için Romer-G uyumlu yedek tuş kapağı.</span><span lang="en">A replacement Romer-G keycap for a Logitech G413.</span><span lang="de">Eine Ersatz-Tastenkappe (Romer-G) für eine Logitech G413.</span></dd>
+            <dt><span lang="tr">Işık anahtarı</span><span lang="en">Light switch</span><span lang="de">Lichtschalter</span></dt>
+            <dd><span lang="tr">Odamdaki basmalı anahtara şalter hissi veren bir kol.</span><span lang="en">A lever that turns my room's push-button switch into a proper throw switch.</span><span lang="de">Ein Hebel, der den Taster in meinem Zimmer zum richtigen Kippschalter macht.</span></dd>
+            <dt><span lang="tr">Yazıcı</span><span lang="en">Printer</span><span lang="de">Drucker</span></dt>
+            <dd><span lang="tr">Yazıcının atık çıkışı için elden geçirilmiş bir çekmece.</span><span lang="en">A reworked waste drawer for the printer's purge chute.</span><span lang="de">Eine überarbeitete Auffangschublade für den Auswurf des Druckers.</span></dd>
+          </dl>
+          <button class="flip-btn mono" type="button" tabindex="-1"><svg><use href="#i-flip"/></svg><span lang="tr">Ön yüz</span><span lang="en">Front</span><span lang="de">Vorderseite</span></button>
+        </div>
+      </div>
+      </article>
+
+      <article class="flip" style="--c:var(--teal)">
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="plate-img"><span class="no">03</span><svg viewBox="0 0 96 48"><use href="#p-chip"/></svg></div>
+          <div class="plate-body">
+            <h3 class="h4"><span lang="tr">Elektronik ve tamir</span><span lang="en">Electronics and repair</span><span lang="de">Elektronik und Reparatur</span></h3>
+            <p><span lang="tr">ETH'de üç yıl elektrik mühendisliği ve bilişim teknolojileri okudum: devreler, elektronik ve otomasyon. Tezgâhta telefon tamir ediyor, saatçi aletleriyle ince işler yapıyorum.</span><span lang="en">Three years of Electrical Engineering and Information Technology at ETH: circuits, electronics and automation. At the bench I repair phones and do fine work with watchmaker's tools.</span><span lang="de">Drei Jahre Elektrotechnik und Informationstechnologie an der ETH: Schaltungen, Elektronik und Automation. An der Werkbank repariere ich Handys und arbeite mit Uhrmacherwerkzeug.</span></p>
+            <p class="stack mono"><span lang="tr">Devreler · Mobil cihaz tamiri · Saatçi aletleri</span><span lang="en">Circuitry · Mobile repair · Watchmaker's tools</span><span lang="de">Schaltungen · Handyreparatur · Uhrmacherwerkzeug</span></p>
+            <button class="flip-btn mono" type="button" aria-pressed="false"><svg><use href="#i-flip"/></svg><span lang="tr">Daha fazla</span><span lang="en">More</span><span lang="de">Mehr</span></button>
+          </div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <h3 class="h4"><span lang="tr">Elektronik ve tamir</span><span lang="en">Electronics and repair</span><span lang="de">Elektronik und Reparatur</span></h3>
+          <div class="back-text"><p><span lang="tr">EEIT programında elektronik ve otomasyon ile elektrik ve enerji alanlarına, bir de geniş temel derslere ağırlık verdim.</span><span lang="en">In the EEIT programme I leaned towards electronics and automation, electricity and energy, on top of the broad core.</span><span lang="de">Im EEIT-Studium lagen meine Schwerpunkte auf Elektronik und Automation sowie Elektrizität und Energie, dazu das breite Grundstudium.</span></p><p><span lang="tr">Bir cihazı açıp nasıl çalıştığını görmek, onu kâğıt üzerinde çözmek kadar öğretici.</span><span lang="en">Opening a device to see how it works teaches as much as solving it on paper.</span><span lang="de">Ein Gerät zu öffnen und zu sehen, wie es funktioniert, lehrt so viel wie die Rechnung auf Papier.</span></p></div>
+          <button class="flip-btn mono" type="button" tabindex="-1"><svg><use href="#i-flip"/></svg><span lang="tr">Ön yüz</span><span lang="en">Front</span><span lang="de">Vorderseite</span></button>
+        </div>
+      </div>
+      </article>
+
+      <article class="flip" style="--c:var(--violet)">
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="plate-img"><span class="no">04</span><svg viewBox="0 0 96 48"><use href="#p-code"/></svg></div>
+          <div class="plate-body">
+            <h3 class="h4"><span lang="tr">Kod ve otomasyon</span><span lang="en">Code and automation</span><span lang="de">Code und Automatisierung</span></h3>
+            <p><span lang="tr">Bir projenin beyne ihtiyacı olduğunda C++, Python ve MATLAB yazıyorum. Tekrar eden işleri yapay zekâ araçları ve LLM entegrasyonlarıyla otomatikleştiriyorum.</span><span lang="en">When a project needs a brain I write C++, Python and MATLAB. Repetitive work gets automated with AI tools and LLM integrations.</span><span lang="de">Wenn ein Projekt ein Gehirn braucht, schreibe ich C++, Python und MATLAB. Wiederkehrende Arbeit automatisiere ich mit KI-Werkzeugen und LLM-Integrationen.</span></p>
+            <p class="stack mono">C++ · Python · MATLAB · Assembly · LLM</p>
+            <button class="flip-btn mono" type="button" aria-pressed="false"><svg><use href="#i-flip"/></svg><span lang="tr">Daha fazla</span><span lang="en">More</span><span lang="de">Mehr</span></button>
+          </div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <h3 class="h4"><span lang="tr">Kod ve otomasyon</span><span lang="en">Code and automation</span><span lang="de">Code und Automatisierung</span></h3>
+          <div class="back-text"><p><span lang="tr">Yapay zekâ otomasyonu, LLM entegrasyonları ve prompt mühendisliği gündelik araçlarım arasında.</span><span lang="en">AI automation, LLM integrations and prompt engineering are part of my everyday toolkit.</span><span lang="de">KI-Automatisierung, LLM-Integrationen und Prompt Engineering gehören zu meinem täglichen Werkzeug.</span></p><p><span lang="tr">Bu site de öyle hazırlandı: tasarımı ve kodu Claude ile birlikte çıktı.</span><span lang="en">This site was made the same way: its design and code were built together with Claude.</span><span lang="de">So ist auch diese Seite entstanden: Design und Code wurden zusammen mit Claude gebaut.</span></p></div>
+          <button class="flip-btn mono" type="button" tabindex="-1"><svg><use href="#i-flip"/></svg><span lang="tr">Ön yüz</span><span lang="en">Front</span><span lang="de">Vorderseite</span></button>
+        </div>
+      </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section class="chapter" id="topluluk" style="--board:var(--teal)">
+  <div class="leaf" data-spine-tr="TOPLULUK" data-spine-en="COMMUNITY" data-spine-de="ENGAGEMENT">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="chapter-head">
+      <h2 class="h2"><span lang="tr">Topluluk</span><span lang="en">Community</span><span lang="de">Engagement</span></h2>
+      <p class="chapter-sub"><span lang="tr">Lise yıllarından beri bir şeyleri organize eden ekiplerin içindeyim: etkinlikler, insanlar ve ortak işler.</span><span lang="en">Since high school I have been part of the teams that organise things: events, people and shared work.</span><span lang="de">Seit der Schulzeit bin ich Teil der Teams, die Dinge organisieren: Veranstaltungen, Menschen und gemeinsame Arbeit.</span></p>
+    </div>
+    <div class="tool-list">
+      <article class="tool-row">
+        <span class="tile on-light" style="--c:var(--yellow)" aria-hidden="true">T</span>
+        <div>
+          <h3 class="h4"><span lang="en" class="k">Turkuaz Students Association</span></h3>
+          <p class="when mono">ETH &amp; UZH · <span lang="tr">Başkan 2024-2025 · Yönetim kurulu 2024-bugün</span><span lang="en">President 2024-2025 · Board 2024-now</span><span lang="de">Präsident 2024-2025 · Vorstand seit 2024</span></p>
+          <p><span lang="tr">ETH Zürich ve Zürih Üniversitesi'ndeki Türk öğrenci topluluğu. Bir dönem başkanlığını yürüttüm, yönetim kurulunda devam ediyorum.</span><span lang="en">The Turkish students' association at ETH Zürich and the University of Zürich. I served one term as President and remain on the board.</span><span lang="de">Der türkische Studierendenverein an der ETH Zürich und der Universität Zürich. Ich war eine Amtszeit lang Präsident und bin weiterhin im Vorstand.</span></p>
+          <p class="stack mono"><a href="https://www.instagram.com/turkuazstudents/" target="_blank" rel="noopener">Instagram · @turkuazstudents</a></p>
+        </div>
+      </article>
+      <article class="tool-row">
+        <span class="tile" style="--c:var(--grass)" aria-hidden="true">M</span>
+        <div>
+          <h3 class="h4"><span lang="en" class="k">Muslim Students Association</span></h3>
+          <p class="when mono">ETH &amp; UZH · <span lang="tr">Başkan yardımcısı 2024-2026</span><span lang="en">Vice President 2024-2026</span><span lang="de">Vizepräsident 2024-2026</span></p>
+          <p><span lang="tr">ETH Zürich ve Zürih Üniversitesi'ndeki Müslüman öğrenci topluluğu. İki yıl başkan yardımcılığı yaptım.</span><span lang="en">The Muslim students' association at ETH Zürich and the University of Zürich. I served two years as Vice President.</span><span lang="de">Der muslimische Studierendenverein an der ETH Zürich und der Universität Zürich. Ich war zwei Jahre lang Vizepräsident.</span></p>
+          <p class="stack mono"><a href="https://www.instagram.com/msazurich/" target="_blank" rel="noopener">Instagram · @msazurich</a></p>
+        </div>
+      </article>
+      <article class="tool-row">
+        <span class="tile" style="--c:var(--ultra)" aria-hidden="true"><span lang="tr" class="k">İ</span></span>
+        <div>
+          <h3 class="h4"><span lang="tr" class="k">İELSBK</span></h3>
+          <p class="when mono"><span lang="tr" class="k">İstanbul Erkek Lisesi</span> · <span lang="tr">Eş başkan 2021-2023</span><span lang="en">Co-President 2021-2023</span><span lang="de">Co-Präsident 2021-2023</span></p>
+          <p><span lang="tr">Türkiye'nin en büyük uluslararası sosyal bilimler çalıştayını düzenleyen kulüp. İki yıl eş başkanlığını yürüttüm.</span><span lang="en">The club behind Turkey's largest international social-sciences workshop. I co-chaired it for two years.</span><span lang="de">Der Klub hinter dem grössten internationalen Sozialwissenschafts-Workshop der Türkei. Ich habe ihn zwei Jahre lang mitgeleitet.</span></p>
+          <p class="stack mono"><a href="https://www.instagram.com/ielsbk/" target="_blank" rel="noopener">Instagram · @ielsbk</a></p>
+        </div>
+      </article>
+      <article class="tool-row">
+        <span class="tile" style="--c:var(--sienna)" aria-hidden="true"><span lang="tr" class="k">Ş</span></span>
+        <div>
+          <h3 class="h4"><span lang="tr">Şehir ve İstanbul Kulübü</span><span lang="en">City and Istanbul Association</span><span lang="de">Klub «Stadt und Istanbul»</span></h3>
+          <p class="when mono"><span lang="tr" class="k">İstanbul Erkek Lisesi</span> · <span lang="tr">Başkan 2022-2023</span><span lang="en">President 2022-2023</span><span lang="de">Präsident 2022-2023</span></p>
+          <p><span lang="tr">Lisede şehir ve İstanbul üzerine çalışan öğrenci kulübü. Son yılımda başkanlığını yaptım.</span><span lang="en">The student club for the city and Istanbul at my high school. I led it in my final year.</span><span lang="de">Der Schülerklub rund um Stadt und Istanbul an meinem Gymnasium. Im letzten Schuljahr habe ich ihn geleitet.</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="chapter" id="hakkimda" style="--board:var(--ultra)">
+  <div class="leaf" data-spine-tr="HAKKIMDA" data-spine-en="ABOUT" data-spine-de="ÜBER MICH">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="method">
+      <div class="about-col">
+      <div>
+        <h2 class="h2"><span lang="tr">Hakkımda</span><span lang="en">About me</span><span lang="de">Über mich</span></h2>
+        <p class="lead"><span lang="tr">ETH Zürich'te makine mühendisliği lisans öğrencisiyim. Beni en çok mekaniğin, elektroniğin ve yazılımın buluştuğu nokta çekiyor.</span><span lang="en">I'm an undergraduate at ETH Zürich studying Mechanical Engineering, drawn to the point where mechanics, electronics and software meet.</span><span lang="de">Ich studiere im Bachelor Maschinenbau an der ETH Zürich. Mich zieht es dorthin, wo Mechanik, Elektronik und Software aufeinandertreffen.</span></p>
+        <p class="body"><span lang="tr">Zürih'ten önce İstanbul'da hem Alman Abitur'unu hem Türk lise diplomasını tamamladım, matematik ve fizikte okul birincisi olarak. O titizlik ve merak karışımı bugün de çalışma biçimimi belirliyor: önce temeli anla, sonra onunla gerçek bir şey yap.</span><span lang="en">Before Zürich I finished both a German Abitur and a Turkish Lise diploma in Istanbul, graduating as class valedictorian in mathematics and physics. That mix of rigour and curiosity still shapes how I work: understand the fundamentals, then build something real with them.</span><span lang="de">Vor Zürich habe ich in Istanbul sowohl das deutsche Abitur als auch das türkische Lise-Diplom abgeschlossen, als Jahrgangsbester in Mathematik und Physik. Diese Mischung aus Gründlichkeit und Neugier prägt bis heute, wie ich arbeite: erst die Grundlagen verstehen, dann etwas Echtes daraus bauen.</span></p>
+        <p class="body"><span lang="tr">Derslerin dışında fotoğrafçı ve videografım, Zürih'te öğrenci hayatının organizasyonunda da yer alıyorum. Mühendislik ile kamera birbirini sanıldığından çok besliyor.</span><span lang="en">Outside the lecture halls I'm a photographer and videographer, and I help run student life in Zürich. The engineering and the camera feed each other more than you'd think.</span><span lang="de">Ausserhalb der Hörsäle bin ich Fotograf und Videograf und gestalte das Studierendenleben in Zürich mit. Ingenieurwesen und Kamera befruchten sich gegenseitig mehr, als man denkt.</span></p>
+      </div>
+      <figure class="about-photo"><img src="img/hero-mid.webp" width="1200" height="800" loading="lazy" alt="Halil Emre Işık beside a camera on a tripod, snow-capped Swiss Alps behind him"></figure>
+      </div>
+      <div class="about-col">
+      <div class="panel">
+        <p class="panel-title mono"><span lang="tr">Diller</span><span lang="en">Languages</span><span lang="de">Sprachen</span></p>
+        <ul class="rows">
+          <li><span><span lang="tr">Türkçe</span><span lang="en">Turkish</span><span lang="de">Türkisch</span></span><span class="more"><span lang="tr">Ana dil</span><span lang="en">Native</span><span lang="de">Muttersprache</span></span></li>
+          <li><span><span lang="tr">İngilizce</span><span lang="en">English</span><span lang="de">Englisch</span></span><span class="more">C2</span></li>
+          <li><span><span lang="tr">Almanca</span><span lang="en">German</span><span lang="de">Deutsch</span></span><span class="more">C1</span></li>
+          <li><span><span lang="tr">Arapça</span><span lang="en">Arabic</span><span lang="de">Arabisch</span></span><span class="more">A2</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <p class="panel-title mono"><span lang="tr">Alet çantası</span><span lang="en">Toolkit</span><span lang="de">Werkzeugkasten</span></p>
+        <dl class="kit">
+          <dt class="mono"><span lang="tr">Kod</span><span lang="en">Code</span><span lang="de">Code</span></dt><dd>C++, Python, MATLAB, Assembly</dd>
+          <dt class="mono">CAD</dt><dd>Siemens NX, Fusion 360, AutoCAD 2D / 3D</dd>
+          <dt class="mono"><span lang="tr">Donanım</span><span lang="en">Hardware</span><span lang="de">Hardware</span></dt><dd><span lang="tr">3D baskı, devreler, mobil cihaz tamiri</span><span lang="en">3D printing, circuitry, mobile repair</span><span lang="de">3D-Druck, Schaltungen, Handyreparatur</span></dd>
+          <dt class="mono"><span lang="tr">Görsel</span><span lang="en">Creative</span><span lang="de">Kreativ</span></dt><dd>Lightroom, Photoshop, Premiere Pro, After Effects, Illustrator, InDesign</dd>
+          <dt class="mono"><span lang="tr">Yapay zekâ</span><span lang="en">AI</span><span lang="de">KI</span></dt><dd><span lang="tr">Otomasyon, LLM entegrasyonları, prompt mühendisliği</span><span lang="en">Automation, LLM integrations, prompt engineering</span><span lang="de">Automatisierung, LLM-Integrationen, Prompt Engineering</span></dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <p class="panel-title mono"><span lang="tr">Tezgâhın dışında</span><span lang="en">Off the bench</span><span lang="de">Abseits der Werkbank</span></p>
+        <p class="body body-flush"><span lang="tr">Yarı profesyonel düzeyde modern okçuluk yapıyorum. Saatçi aletleriyle uğraşmak, telefon tamir etmek ve pist kenarında uçak fotoğraflamak da boş zamanımın büyük kısmını alıyor.</span><span lang="en">I shoot modern archery at a semi-professional level. Tinkering with watchmaker's tools, repairing phones and photographing aircraft by the runway take up most of the rest of my free time.</span><span lang="de">Ich betreibe modernes Bogenschiessen auf semiprofessionellem Niveau. Basteln mit Uhrmacherwerkzeug, Handys reparieren und Flugzeuge an der Piste fotografieren füllen den grössten Teil der restlichen Freizeit.</span></p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECORD ================= -->
+<section class="chapter" id="ozgecmis" style="--board:var(--violet)">
+  <div class="leaf" data-spine-tr="EĞİTİM · DENEYİM" data-spine-en="EDUCATION · EXPERIENCE" data-spine-de="AUSBILDUNG · ERFAHRUNG">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="record">
+      <div>
+        <h2 class="h2"><span lang="tr">Eğitim</span><span lang="en">Education</span><span lang="de">Ausbildung</span></h2>
+        <table class="timeline">
+          <tr>
+            <td class="mono"><span lang="tr">2026-bugün</span><span lang="en">2026-now</span><span lang="de">seit 2026</span></td>
+            <td><b><span lang="tr">BSc Makine Mühendisliği</span><span lang="en">BSc Mechanical Engineering</span><span lang="de">BSc Maschineningenieurwissenschaften</span></b><p>ETH Zürich · D-MAVT</p></td>
+          </tr>
+          <tr>
+            <td class="mono">2023-2026</td>
+            <td><b><span lang="tr">BSc Elektrik Mühendisliği ve Bilişim Teknolojileri</span><span lang="en">BSc Electrical Engineering and Information Technology</span><span lang="de">BSc Elektrotechnik und Informationstechnologie</span></b><p><span lang="tr">ETH Zürich · D-ITET. Elektronik ve otomasyon, elektrik ve enerji, geniş EEIT temel dersleri.</span><span lang="en">ETH Zürich · D-ITET. Electronics and automation, electricity and energy, and the broad EEIT core.</span><span lang="de">ETH Zürich · D-ITET. Elektronik und Automation, Elektrizität und Energie sowie das breite EEIT-Grundstudium.</span></p></td>
+          </tr>
+          <tr>
+            <td class="mono">2018-2023</td>
+            <td><b><span lang="tr">Alman Abitur'u</span><span lang="en">German Abitur</span><span lang="de">Deutsches Abitur</span> · <span lang="en" class="k">Istanbuler Gymnasium</span></b><p><span lang="tr">İstanbul. Mezuniyet notu 2,1.</span><span lang="en">Istanbul. Final grade 2.1.</span><span lang="de">Istanbul. Abschlussnote 2,1.</span></p><span class="badge badge-ok"><span lang="tr">Matematik ve fizikte okul birincisi</span><span lang="en">Class valedictorian in mathematics and physics</span><span lang="de">Jahrgangsbester in Mathematik und Physik</span></span></td>
+          </tr>
+          <tr>
+            <td class="mono">2018-2023</td>
+            <td><b><span lang="tr">Lise diploması</span><span lang="en">Turkish Lise diploma</span><span lang="de">Türkisches Lise-Diplom</span> · <span lang="tr" class="k">İstanbul Erkek Lisesi</span></b><p><span lang="tr">İstanbul. Liselere giriş sınavında 971.657 öğrenci arasında 331. sıra.</span><span lang="en">Istanbul. Ranked 331st of 971,657 in the national high-school entrance exam.</span><span lang="de">Istanbul. Rang 331 von 971'657 in der landesweiten Aufnahmeprüfung für Gymnasien.</span></p></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h2 class="h2"><span lang="tr">Deneyim</span><span lang="en">Experience</span><span lang="de">Erfahrung</span></h2>
+        <table class="timeline">
+          <tr>
+            <td class="mono"><span lang="tr">2018-bugün</span><span lang="en">2018-now</span><span lang="de">seit 2018</span></td>
+            <td><b><span lang="tr">Fotoğraf ve video</span><span lang="en">Photography and videography</span><span lang="de">Fotografie und Video</span></b><p><span lang="tr">Serbest. Drone ve kamerayla, Alp manzaralarından ısmarlama çekimlere, çekimden son kurguya kadar bütün süreç.</span><span lang="en">Freelance. Drone and camera work from alpine landscapes to commissioned shoots, covering the full pipeline from the shot to the final edit.</span><span lang="de">Freiberuflich. Arbeiten mit Drohne und Kamera, von Alpenlandschaften bis zu Auftragsdrehs, vom Auslösen bis zum fertigen Schnitt.</span></p></td>
+          </tr>
+          <tr>
+            <td class="mono">2021-2023</td>
+            <td><b><span lang="tr">Video kurgu ve dijital tasarım</span><span lang="en">Video editing and digital design</span><span lang="de">Videoschnitt und digitales Design</span></b><p><span lang="tr">Serbest. Her biri 100 binden fazla aboneli dört YouTube ve Instagram içerik üreticisi için kurgu ve tasarım: kişisel gelişim, fitness, koçluk ve finans.</span><span lang="en">Freelance. Editing and design for four YouTube and Instagram creators with 100k+ subscribers each, across self-improvement, fitness, coaching and finance.</span><span lang="de">Freiberuflich. Schnitt und Design für vier YouTube- und Instagram-Creator mit je über 100'000 Abonnenten, in den Bereichen Persönlichkeitsentwicklung, Fitness, Coaching und Finanzen.</span></p></td>
+          </tr>
+          <tr>
+            <td class="mono">2019-2022</td>
+            <td><b><span lang="tr">Topluluk moderatörü</span><span lang="en">Community moderator</span><span lang="de">Community-Moderator</span> · <span lang="en" class="k">Xiaomi</span> <span lang="tr" class="k">Türkiye</span></b><p><span lang="tr">Xiaomi'nin resmî topluluğunda ve 100 bin üyeli bir Facebook grubunda teknik destek moderatörlüğü, Xiaomi'nin uluslararası sosyal medya paylaşımlarının Türkçeye uyarlanması.</span><span lang="en">Technical-support moderator for Xiaomi's official community and a 100,000-member Facebook group, and localisation of Xiaomi's international social-media posts for the Turkish audience.</span><span lang="de">Moderator für technischen Support in der offiziellen Xiaomi-Community und einer Facebook-Gruppe mit 100'000 Mitgliedern, dazu Lokalisierung internationaler Social-Media-Beiträge von Xiaomi für das türkische Publikum.</span></p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="chapter" id="iletisim" style="--board:var(--sienna)">
+  <div class="leaf" data-spine-tr="İLETİŞİM" data-spine-en="CONTACT" data-spine-de="KONTAKT">
+    <span class="holes" aria-hidden="true"></span>
+    <div class="contact">
+      <div>
+        <h2 class="h2"><span lang="tr">İletişim</span><span lang="en">Contact</span><span lang="de">Kontakt</span></h2>
+        <p class="lead"><span lang="tr">Staj, iş birliği, fotoğraf ve video işleri ya da mühendislik ve dağlar üzerine iyi bir sohbet için yazabilirsiniz.</span><span lang="en">Open to internships, collaborations, photo and video work, or just a good conversation about engineering and the mountains.</span><span lang="de">Offen für Praktika, Zusammenarbeit, Foto- und Videoaufträge oder einfach ein gutes Gespräch über Technik und die Berge.</span></p>
+        <a class="mail" href="mailto:halilemreisik@gmail.com"><svg><use href="#i-mail"/></svg>halilemreisik@gmail.com</a>
+      </div>
+      <div class="panel">
+        <p class="panel-title mono"><span lang="tr">Bağlantılar</span><span lang="en">Links</span><span lang="de">Links</span></p>
+        <ul class="rows">
+          <li><a href="mailto:haisik@ethz.ch"><span lang="tr">Akademik ve iş</span><span lang="en">Academic and business</span><span lang="de">Studium und Beruf</span></a><span class="mono">haisik@ethz.ch</span></li>
+          <li><a href="https://www.linkedin.com/in/halilemreisik/" target="_blank" rel="me noopener"><span lang="en" class="k">LinkedIn</span></a><span class="mono">in/halilemreisik</span></li>
+          <li><a href="https://www.instagram.com/zenith.frame/" target="_blank" rel="me noopener"><span lang="tr">Instagram · Fotoğraf</span><span lang="en">Instagram · Photography</span><span lang="de">Instagram · Fotografie</span></a><span class="mono">@zenith.frame</span></li>
+          <li><a href="https://www.instagram.com/halilemreisik/" target="_blank" rel="me noopener"><span lang="tr">Instagram · Kişisel</span><span lang="en">Instagram · Personal</span><span lang="de">Instagram · Privat</span></a><span class="mono">@halilemreisik</span></li>
+          <li><a href="https://github.com/halilemreisik" target="_blank" rel="me noopener"><span lang="en" class="k">GitHub</span></a><span class="mono">halilemreisik</span></li>
+        </ul>
+      </div>
+    </div>
+    <footer class="colophon mono">
+      <span>© 2026 Halil Emre Işık</span>
+      <span><span lang="tr">Tasarım dili</span><span lang="en">Design language after</span><span lang="de">Designsprache nach</span>: <a href="https://haktansaglam.com/" target="_blank" rel="noopener">haktansaglam.com</a></span>
+      <span>Zürich / Winterthur</span>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+  <button class="lb-prev" type="button" aria-label="Previous"><svg><use href="#i-arrow"/></svg></button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-next" type="button" aria-label="Next"><svg><use href="#i-arrow"/></svg></button>
+  <button class="lb-close" type="button" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+</div>
+
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

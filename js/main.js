@@ -1,165 +1,135 @@
-/* =====================================================================
-   Halil Emre Işık — personal site
-   main.js  (vanilla, no dependencies)
-
-   Handles:
-     1. Light / dark theme toggle  (persisted to localStorage)
-     2. Mobile navigation dropdown
-     3. Sticky-header border on scroll
-     4. Scroll-reveal animations    (respects prefers-reduced-motion)
-     5. Active-section highlight in the nav
-     6. Current year in the footer
-   ===================================================================== */
+// Halil Emre Işık · personal site. Vanilla JS, no dependencies:
+// language switch, tab rail, flip cards and the photo lightbox.
 (function () {
-  "use strict";
+  const root = document.documentElement;
+  const LANGS = ["tr", "en", "de"];
 
-  var root = document.documentElement;
-
-  /* -------------------- 0. CINEMATIC PAGE REVEAL ------------------- */
-  // Triggers letterbox bars to retract; double rAF ensures transition fires
-  requestAnimationFrame(function () {
-    requestAnimationFrame(function () {
-      document.body.classList.add("loaded");
+  // ---- language ----
+  // All three languages live in the HTML; CSS hides the inactive ones.
+  const langButtons = Array.from(document.querySelectorAll(".lang-toggle button"));
+  function readSavedLang() {
+    try { return localStorage.getItem("hei-lang"); } catch (e) { return null; }
+  }
+  function setLang(lang, save) {
+    if (LANGS.indexOf(lang) < 0) lang = "en";
+    root.dataset.lang = lang;
+    root.lang = lang;
+    langButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.set === lang)); });
+    const t = document.querySelector('meta[name="title-' + lang + '"]');
+    if (t) document.title = t.content;
+    if (save) { try { localStorage.setItem("hei-lang", lang); } catch (e) {} }
+  }
+  const nav = (navigator.language || "").toLowerCase().slice(0, 2);
+  setLang(readSavedLang() || (LANGS.indexOf(nav) >= 0 ? nav : "en"), false);
+  langButtons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      setLang(b.dataset.set, true);
+      window.dispatchEvent(new Event("resize")); // text lengths changed: refit tabs and spines
     });
   });
 
-  /* ----------------------- 1. THEME TOGGLE ------------------------- */
-  var toggle = document.getElementById("theme-toggle");
-
-  function syncToggle() {
-    var isDark = root.getAttribute("data-theme") === "dark";
-    if (toggle) {
-      toggle.setAttribute("aria-pressed", String(isDark));
-      toggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light theme" : "Switch to dark theme"
-      );
+  // ---- tab rail ----
+  // Each tab's height follows its chapter's length; the tab of the chapter in view sticks out.
+  const tabs = Array.from(document.querySelectorAll(".rail a"));
+  const theme = document.querySelector('meta[name="theme-color"]');
+  const chapters = tabs.map(function (t) { return document.querySelector(t.getAttribute("href")); });
+  function sizeTabs() {
+    const heights = chapters.map(function (c) { return c ? c.offsetHeight : 1; });
+    const min = Math.min.apply(null, heights);
+    tabs.forEach(function (t, i) { t.style.setProperty("--extent", (heights[i] / min).toFixed(2)); });
+  }
+  function markCurrent() {
+    const probe = window.innerHeight * 0.4;
+    let current = 0;
+    chapters.forEach(function (c, i) { if (c && c.getBoundingClientRect().top <= probe) current = i; });
+    // The last chapter is short and never reaches the probe line, so the bottom of the page selects it.
+    if (window.innerHeight + window.scrollY >= root.scrollHeight - 4) current = chapters.length - 1;
+    tabs.forEach(function (t, i) {
+      t.classList.toggle("is-current", i === current);
+      if (i === current) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current");
+    });
+    // The browser chrome and scrollbar take the current chapter's board colour.
+    const board = getComputedStyle(chapters[current]).backgroundColor;
+    if (theme && theme.content !== board) { theme.content = board; root.style.scrollbarColor = "#1c1a16 " + board; }
+    // On phones the rail is a horizontal strip: keep the current tab in view.
+    const rail = tabs[0].parentElement;
+    if (rail.scrollWidth > rail.clientWidth) {
+      const t = tabs[current];
+      rail.scrollLeft = t.offsetLeft - (rail.clientWidth - t.offsetWidth) / 2;
     }
   }
-  syncToggle();
-
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
-      syncToggle();
+  // A leaf's vertical running head sits between its two punch holes; on a short leaf it would
+  // run into the upper hole, so it is dropped there.
+  function fitSpines() {
+    document.querySelectorAll(".leaf[data-spine-en]").forEach(function (leaf) {
+      const text = leaf.getAttribute("data-spine-" + root.dataset.lang) || "";
+      const needed = 200 + text.length * 8.2 + 160; // bottom offset + text run + upper hole zone
+      leaf.classList.toggle("no-spine", leaf.offsetHeight < needed);
     });
   }
+  function refit() { sizeTabs(); fitSpines(); markCurrent(); }
+  refit();
+  window.addEventListener("resize", refit);
+  window.addEventListener("scroll", markCurrent, { passive: true });
+  window.addEventListener("load", refit);
 
-  // If the user has NOT made an explicit choice, follow the OS as it changes.
-  var mq = window.matchMedia("(prefers-color-scheme: dark)");
-  (mq.addEventListener || mq.addListener).call(
-    mq,
-    mq.addEventListener ? "change" : undefined,
-    function (e) {
-      var hasChoice;
-      try { hasChoice = localStorage.getItem("theme"); } catch (err) { hasChoice = null; }
-      if (!hasChoice) {
-        root.setAttribute("data-theme", e.matches ? "dark" : "light");
-        syncToggle();
-      }
+  // ---- flip cards ----
+  const narrow = window.matchMedia("(max-width: 760px)");
+  const flips = Array.from(document.querySelectorAll(".flip"));
+  flips.forEach(function (card) {
+    const front = card.querySelector(".front");
+    const back = card.querySelector(".back");
+    const buttons = card.querySelectorAll(".flip-btn");
+    function show(flipped) {
+      card.classList.toggle("is-flipped", flipped);
+      front.setAttribute("aria-hidden", String(flipped));
+      back.setAttribute("aria-hidden", String(!flipped));
+      buttons[0].tabIndex = flipped ? -1 : 0;
+      buttons[1].tabIndex = flipped ? 0 : -1;
+      buttons[0].setAttribute("aria-pressed", String(flipped));
+      (flipped ? buttons[1] : buttons[0]).focus({ preventScroll: true });
     }
-  );
-
-  /* --------------------- 2. MOBILE NAVIGATION ---------------------- */
-  var navToggle = document.getElementById("nav-toggle");
-  var mobileNav = document.getElementById("mobile-nav");
-
-  function closeMobileNav() {
-    if (!mobileNav) return;
-    mobileNav.classList.remove("open");
-    mobileNav.setAttribute("hidden", "");
-    if (navToggle) {
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.setAttribute("aria-label", "Open menu");
-    }
+    buttons[0].addEventListener("click", function () { show(true); });
+    buttons[1].addEventListener("click", function () { show(false); });
+  });
+  // On phones both faces are shown stacked (see style.css), so neither is hidden from assistive tech.
+  function syncFaces() {
+    flips.forEach(function (card) {
+      const flipped = card.classList.contains("is-flipped");
+      card.querySelector(".front").setAttribute("aria-hidden", String(!narrow.matches && flipped));
+      card.querySelector(".back").setAttribute("aria-hidden", String(!narrow.matches && !flipped));
+    });
   }
+  narrow.addEventListener("change", syncFaces);
+  syncFaces();
 
-  if (navToggle && mobileNav) {
-    navToggle.addEventListener("click", function () {
-      var open = mobileNav.classList.toggle("open");
-      if (open) {
-        mobileNav.removeAttribute("hidden");
-        navToggle.setAttribute("aria-expanded", "true");
-        navToggle.setAttribute("aria-label", "Close menu");
-      } else {
-        closeMobileNav();
-      }
-    });
-    // Close when a link is tapped
-    mobileNav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", closeMobileNav);
-    });
-    // Close on Escape
+  // ---- photo lightbox ----
+  const lb = document.getElementById("lightbox");
+  const shots = Array.from(document.querySelectorAll(".shot"));
+  if (lb && shots.length) {
+    const img = lb.querySelector("img");
+    const cap = lb.querySelector("figcaption");
+    let at = 0, opener = null;
+    function paint() {
+      const s = shots[at];
+      const text = s.getAttribute("data-cap-" + root.dataset.lang) || "";
+      img.src = s.getAttribute("data-full");
+      img.alt = text;
+      cap.textContent = String(at + 1).padStart(2, "0") + " / " + shots.length + " · " + text;
+    }
+    function open(i) { at = i; opener = shots[i]; paint(); lb.hidden = false; document.body.style.overflow = "hidden"; lb.querySelector(".lb-close").focus(); }
+    function close() { lb.hidden = true; img.removeAttribute("src"); document.body.style.overflow = ""; if (opener) opener.focus(); }
+    function step(d) { at = (at + d + shots.length) % shots.length; paint(); }
+    shots.forEach(function (s, i) { s.addEventListener("click", function () { open(i); }); });
+    lb.querySelector(".lb-close").addEventListener("click", close);
+    lb.querySelector(".lb-prev").addEventListener("click", function () { step(-1); });
+    lb.querySelector(".lb-next").addEventListener("click", function () { step(1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeMobileNav();
+      if (lb.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
     });
   }
-
-  /* ------------------- 3. STICKY HEADER ON SCROLL ------------------ */
-  var header = document.querySelector(".site-header");
-  var cover = document.querySelector(".hero-cover");
-  function onScroll() {
-    if (!header) return;
-    // Switch from the transparent "over photo" look to the solid bar once
-    // the visitor has scrolled near the bottom of the full-screen cover.
-    var threshold = cover ? cover.offsetHeight - 90 : 8;
-    var past = window.scrollY > threshold;
-    header.classList.toggle("scrolled", past);
-    header.classList.toggle("at-top", !!cover && !past);
-  }
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
-
-  /* --------------------- 4. SCROLL-REVEAL ------------------------- */
-  var reveals = document.querySelectorAll(".reveal");
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    reveals.forEach(function (el) { el.classList.add("in"); });
-  } else {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
-    );
-    reveals.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ------------------ 5. ACTIVE NAV HIGHLIGHT --------------------- */
-  var sections = document.querySelectorAll("main section[id]");
-  var navLinks = document.querySelectorAll(".nav a");
-
-  if (sections.length && navLinks.length && "IntersectionObserver" in window) {
-    var linkFor = {};
-    navLinks.forEach(function (a) {
-      linkFor[a.getAttribute("href").slice(1)] = a;
-    });
-
-    var spy = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            navLinks.forEach(function (a) { a.classList.remove("active"); });
-            var active = linkFor[entry.target.id];
-            if (active) active.classList.add("active");
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    sections.forEach(function (s) { spy.observe(s); });
-  }
-
-  /* --------------------- 6. FOOTER YEAR --------------------------- */
-  var year = document.getElementById("year");
-  if (year) year.textContent = String(new Date().getFullYear());
 })();
